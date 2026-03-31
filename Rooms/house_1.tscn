@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cxh8uj058iwc5"]
+
+[ext_resource type="Texture2D" uid="uid://yylky3b2h2hn" path="res://PNGs/PlaceHolderRoom1.png" id="1_7u46o"]
+[ext_resource type="Texture2D" uid="uid://d1mkvl24duug6" path="res://PNGs/black_square.webp" id="2_4qmjr"]
+[ext_resource type="PackedScene" uid="uid://bn2hfrdiwhplg" path="res://Scripts/player.tscn" id="3_53ikc"]
+[ext_resource type="PackedScene" uid="uid://cqcn57b2vav2s" path="res://level_transition/level_transition.tscn" id="5_7u46o"]
+[ext_resource type="Texture2D" uid="uid://bue03s1smqji2" path="res://PNGs/Dresser.png" id="5_8tghy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xm3c"]
+size = Vector2(28, 664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tem3n"]
+size = Vector2(1134, 133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n837q"]
+size = Vector2(332, 662)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxvx2"]
+size = Vector2(1284, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vel6h"]
+size = Vector2(40, 125)
+
+[node name="House1" type="Node2D" unique_id=643071038]
+
+[node name="Room" type="Sprite2D" parent="." unique_id=98176117]
+position = Vector2(1535, 704)
+scale = Vector2(7.3699994, 6.625)
+texture = ExtResource("1_7u46o")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=162025089]
+z_index = -1
+position = Vector2(1661, 783.00024)
+scale = Vector2(6.3076224, 3.7141562)
+texture = ExtResource("2_4qmjr")
+
+[node name="Player" parent="." unique_id=1165402513 instance=ExtResource("3_53ikc")]
+position = Vector2(1694, 712)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1988801499]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Wall1" type="CollisionShape2D" parent="Walls" unique_id=2055536731]
+light_mask = 6
+visibility_layer = 6
+position = Vector2(969, 704)
+shape = SubResource("RectangleShape2D_8xm3c")
+
+[node name="Wall2" type="CollisionShape2D" parent="Walls" unique_id=252554823]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(1521, 440.5)
+shape = SubResource("RectangleShape2D_tem3n")
+
+[node name="Wall3" type="CollisionShape2D" parent="Walls" unique_id=1831336555]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(2253, 702)
+shape = SubResource("RectangleShape2D_n837q")
+
+[node name="Wall4" type="CollisionShape2D" parent="Walls" unique_id=142555873]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(1624, 1044.5)
+shape = SubResource("RectangleShape2D_nxvx2")
+
+[node name="Wall5" type="CollisionShape2D" parent="Walls" unique_id=1127822118]
+light_mask = 6
+visibility_layer = 6
+position = Vector2(2038, 701.5)
+shape = SubResource("RectangleShape2D_vel6h")
+
+[node name="Furniture" type="Node2D" parent="." unique_id=586060358]
+
+[node name="Dresser" type="Sprite2D" parent="Furniture" unique_id=444097784]
+z_index = 2
+position = Vector2(2028.5, 674.0625)
+scale = Vector2(7.375011, 6.662036)
+texture = ExtResource("5_8tghy")
+
+[node name="Door" parent="." unique_id=1936276945 instance=ExtResource("5_7u46o")]
+position = Vector2(1823, 563)
+target_level = "uid://b32bbputwhxvt"
+target_area_name = "Door"

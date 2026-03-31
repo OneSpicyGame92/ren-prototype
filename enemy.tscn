@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://dn5e6ui1y67lb"]
+
+[ext_resource type="Script" uid="uid://cy7j1phfx1r5f" path="res://Scripts/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://cw0lcr4ih6fjl" path="res://PNGs/EnemyP-idle-front.png" id="1_7k104"]
+[ext_resource type="Shader" uid="uid://b80s8r5fqmc28" path="res://enemy.gdshader" id="2_dxifv"]
+[ext_resource type="Texture2D" uid="uid://dwil5xx5medae" path="res://PNGs/EnemyP-idle-left.png" id="3_e1ltt"]
+[ext_resource type="Texture2D" uid="uid://bw7og8b8r3ucg" path="res://PNGs/EnemyP-idle-right.png" id="4_dxifv"]
+[ext_resource type="Texture2D" uid="uid://doiwimfuqhxnk" path="res://PNGs/EnemyP-idle-back.png" id="5_pwjut"]
+[ext_resource type="Texture2D" uid="uid://cetofis1u56t7" path="res://PNGs/EnemyP-walk-FrontTrans.png" id="7_dxifv"]
+[ext_resource type="Texture2D" uid="uid://cdh6p1v7ukd2k" path="res://PNGs/EnemyP-walk-leftTrans.png" id="8_pwjut"]
+[ext_resource type="Texture2D" uid="uid://c5preracb5id3" path="res://PNGs/EnemyP-walkRightTrans.png" id="9_dxifv"]
+[ext_resource type="Texture2D" uid="uid://df614ra55yx24" path="res://PNGs/EnemyP-walk-backtrans.png" id="10_n0g06"]
+[ext_resource type="Texture2D" uid="uid://pu0fwvdgo26d" path="res://PNGs/death-animation Copy.png" id="11_pwjut"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwjut"]
+shader = ExtResource("2_dxifv")
+shader_parameter/flash_amount = 0.0
+shader_parameter/outline_size = 15.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnovl"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7k104")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e1ltt")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dxifv")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pwjut")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_dxifv")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_pwjut")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_dxifv")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_n0g06")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(49.5, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0g06"]
+atlas = ExtResource("11_pwjut")
+region = Rect2(0, 0, 24, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar8e5"]
+atlas = ExtResource("11_pwjut")
+region = Rect2(24, 0, 24, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doop2"]
+atlas = ExtResource("11_pwjut")
+region = Rect2(48, 0, 24, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hcft"]
+atlas = ExtResource("11_pwjut")
+region = Rect2(72, 0, 24, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnovl"]
+atlas = ExtResource("11_pwjut")
+region = Rect2(96, 0, 24, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxifv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0g06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar8e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doop2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hcft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnovl")
+}],
+"loop": false,
+"name": &"death",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwjut"]
+size = Vector2(74, 85)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1815882408 groups=["enemies"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4gyqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1353948568]
+material = SubResource("ShaderMaterial_pwjut")
+position = Vector2(-2.9802322e-08, 0)
+scale = Vector2(0.46250004, 0.46666667)
+sprite_frames = SubResource("SpriteFrames_nnovl")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785619823]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="Death" type="AnimatedSprite2D" parent="." unique_id=1678553465]
+scale = Vector2(4.625, 4.666666)
+sprite_frames = SubResource("SpriteFrames_dxifv")
+animation = &"death"
+
+[node name="Physical" type="CollisionShape2D" parent="." unique_id=1811429984]
+position = Vector2(0, 32.5)
+shape = SubResource("RectangleShape2D_pwjut")

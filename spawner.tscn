@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c1hymtw3q4wu4"]
+
+[ext_resource type="Script" uid="uid://fo3xp3wr7kj4" path="res://Scripts/spawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://dn5e6ui1y67lb" path="res://enemy.tscn" id="2_ttk4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y68oj"]
+size = Vector2(565, 444)
+
+[node name="Spawner" type="Node2D" unique_id=375029265]
+script = ExtResource("1_yp5lu")
+enemy_scene = ExtResource("2_ttk4a")
+
+[node name="SpawnArea" type="Area2D" parent="." unique_id=1579888067]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=961499611]
+position = Vector2(47.5, 154)
+shape = SubResource("RectangleShape2D_y68oj")
+
+[node name="Timer" type="Timer" parent="." unique_id=277040966]
+wait_time = 3.0
+autostart = true
